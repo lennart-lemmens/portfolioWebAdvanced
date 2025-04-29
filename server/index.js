@@ -1,7 +1,17 @@
-"use strict";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
 
-const clientID = "457e81p2tj4yjdvryru7at1gb7fcgo";
-const clientSecret = "h98zm69txdxhlhp45gtujhf51hlccm";
+dotenv.config();
+
+const app = express();
+const corsOptions = {
+    origin: ["http://localhost:5173"]
+};
+
+const clientID = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
+let authorization;
 
 // Fetch API access token to be used at every request
 fetch(`https://id.twitch.tv/oauth2/token?client_id=${clientID}&client_secret=${clientSecret}&grant_type=client_credentials`, {
@@ -12,8 +22,18 @@ fetch(`https://id.twitch.tv/oauth2/token?client_id=${clientID}&client_secret=${c
     const accessToken = data.access_token;
     const tokenType = data.token_type;
     const tokenTypeCapitalized = tokenType[0].toUpperCase() + tokenType.slice(1); // Source: https://sentry.io/answers/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript/
-    const authorization = `${tokenTypeCapitalized} ${accessToken}`;
+    authorization = `${tokenTypeCapitalized} ${accessToken}`;
 })
 .catch(error => {
     console.error(error);
+});
+
+app.use(cors(corsOptions));
+
+app.get("/api", (req, res) => {
+    res.json({fruits: ["apple", "orange", "banana"]});
+});
+
+app.listen(8080, () => {
+    console.log("Server started on port 8080");
 });

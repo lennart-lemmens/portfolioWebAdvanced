@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Programming Project</title>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+  <body>
+    <nav id="filters">
+      <select name="platform" id="platform">
+        <option value="*" disabled selected>Platform</option>
+      </select>
+      <select name="genre" id="genre">
+        <option value="*" disabled selected>Genre</option>
+      </select>
+      <button id="searchButton">Search</button>
+    </nav>
+
+    <div id="resultList"></div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

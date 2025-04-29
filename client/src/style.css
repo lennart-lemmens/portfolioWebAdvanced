@@ -1,0 +1,47 @@
+/*
+Colours:
+    #F9F7F7
+    #DBE2EF
+    #3F72AF
+    #112D4E
+*/
+
+#filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem auto;
+    padding: 1rem 2rem;
+    border: 1px solid #DBE2EF;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #DBE2EF;
+    width: fit-content;
+}
+
+select, button {
+    height: 30px;
+}
+
+select {
+    width: 200px;
+    color: #112D4E;
+    border: 0;
+}
+
+button {
+    width: 100px;
+    background-color: #3F72AF;
+    color: #F9F7F7;
+    border: 1px solid #112D4E;
+    border-radius: 7px;
+}
+
+#resultList {
+    width: 80vw;
+    margin: 2rem auto;
+}
+
+.gameCard {
+    box-shadow: 0 0 10px #DBE2EF;
+    border-radius: 7px;
+}
