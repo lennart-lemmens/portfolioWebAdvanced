@@ -1,5 +1,7 @@
 "use strict";
 
+import { requestData } from "./functions/requestData.js";
+import { getListData } from "./functions/listElements.js";
 import { Game } from "./classes/game.js";
 
 const searchButton = document.getElementById("searchButton");
@@ -8,30 +10,9 @@ const resultList = document.getElementById("resultList");
 const platform = document.getElementById("platform");
 const genre = document.getElementById("genre");
 
-const requestData = async (endpoint, bodyText) => {
-    return fetch("http://localhost:8080/request", {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json"
-        },
-        body: JSON.stringify({ endpoint: endpoint, bodyText: bodyText })
-    })
-    .then(response => response.json())
-}
-
 // TODO select-lijsten opvullen met options
-const getPlatformList = () => {
-    requestData("platforms", "fields name; sort name asc; limit 50; where generation > 7;")
-    .then(data => {
-        for (let item of data) {
-            const option = document.createElement("option");
-            option.textContent = item.name;
-            platform.appendChild(option);
-        }
-    })
-}
-
-getPlatformList();
+getListData("platforms", "fields name; sort name asc; limit 50; where generation > 7;", platform);
+getListData("genres", "fields name; sort name asc; limit 25;", genre);
 
 const createCard = data => {
     resultList.innerHTML = "";
@@ -41,7 +22,7 @@ const createCard = data => {
         resultList.appendChild(p);
     }
     console.table(data);
-} // class van maken?
+} // in game class zetten?
 
 searchButton.addEventListener("click", () => {
     searchButton.textContent = "Loading...";
