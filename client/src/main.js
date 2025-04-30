@@ -8,26 +8,45 @@ const genre = document.getElementById("genre");
 
 // TODO select-lijsten opvullen met options
 
-searchButton.addEventListener("click", () => {
-    fetch("http://localhost:8080/request", {
+const requestData = async (endpoint, bodyText) => {
+    return fetch("http://localhost:8080/request", {
         method: "POST",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ endpoint: "games", bodyText: `
+        body: JSON.stringify({ endpoint: endpoint, bodyText: bodyText })
+    })
+    .then(response => response.json())
+}
+
+const createCard = data => {
+    resultList.innerHTML = "";
+    for (let game of data) {
+        const p = document.createElement("p");
+        p.textContent = game.name;
+        resultList.appendChild(p);
+    }
+    console.table(data);
+}
+
+searchButton.addEventListener("click", () => {
+    searchButton.textContent = "Loading...";
+    searchButton.setAttribute("disabled", "");
+    resultList.textContent = "Loading...";
+
+    requestData("games", `
           fields name, first_release_date, genres.name;
           search "mario";
           limit 50;
           where first_release_date > ${Math.floor(Date.now() / 1000)};
-      ` })
-    })
-    .then(response => response.json())
+      `)
     .then(data => {
-        for (let game of data) {
-            const p = document.createElement("p");
-            p.textContent = game.name;
-            resultList.appendChild(p);
-        }
-        console.log(data);
+        createCard(data);
+        searchButton.textContent = "Search";
+        searchButton.removeAttribute("disabled");
+    })
+    .catch(error => {
+        resultList.textContent = error;
+        console.error(error);
     });
 });
