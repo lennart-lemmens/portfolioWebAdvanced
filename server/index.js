@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import {requestData} from "./fetch.js";
+import { requestData } from "./functions/requestData.js";
 
 const app = express();
 const corsOptions = {
