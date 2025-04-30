@@ -1,26 +1,31 @@
 export class Game {
-    constructor(id, name, image, genre, multiplayermodes) {
+    constructor(id, name, cover, genres, multiplayermodes) {
         this.id = id;
         this.name = name;
-        this.image = image;
-        this.genre = genre;
+        this.cover = cover;
+        this.genres = genres;
         this.multiplayermodes = multiplayermodes;
-        // check if game is stored in localStorage
-        this.favorite = false;
+        this.favorite = JSON.parse(localStorage.getItem("favorites").includes(this.id)) ? true : false;
     }
 
     toggleFavorite() {
+        // check if favorites array exists in localStorage
         let favorites = JSON.parse(localStorage.getItem("favorites"));
-        // Create localStorage containing favorites
         if (favorites == null) favorites = [];
 
-        // check if it contains game id: 
-        if (favorites.includes(this.id)) {
+        // toggle game ID in localStorage
+        if (this.favorite) {
             favorites.pop(this.id);
+            this.favorite = false;
         } else {
             favorites.push(this.id);
+            this.favorite = true;
         }
-
         localStorage.setItem("favorites", JSON.stringify(favorites));
+        console.log(this.favorite);
     } // https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
+
+    createCard() {
+
+    }
 }
