@@ -1,5 +1,7 @@
 "use strict";
 
+import { Game } from "./classes/game.js";
+
 const searchButton = document.getElementById("searchButton");
 const resultList = document.getElementById("resultList");
 
@@ -39,7 +41,7 @@ const createCard = data => {
         resultList.appendChild(p);
     }
     console.table(data);
-}
+} // class van maken?
 
 searchButton.addEventListener("click", () => {
     searchButton.textContent = "Loading...";
