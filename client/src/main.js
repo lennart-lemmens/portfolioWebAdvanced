@@ -6,8 +6,6 @@ const resultList = document.getElementById("resultList");
 const platform = document.getElementById("platform");
 const genre = document.getElementById("genre");
 
-// TODO select-lijsten opvullen met options
-
 const requestData = async (endpoint, bodyText) => {
     return fetch("http://localhost:8080/request", {
         method: "POST",
@@ -18,6 +16,20 @@ const requestData = async (endpoint, bodyText) => {
     })
     .then(response => response.json())
 }
+
+// TODO select-lijsten opvullen met options
+const getPlatformList = () => {
+    requestData("platforms", "fields name; sort name asc; limit 50; where generation > 7;")
+    .then(data => {
+        for (let item of data) {
+            const option = document.createElement("option");
+            option.textContent = item.name;
+            platform.appendChild(option);
+        }
+    })
+}
+
+getPlatformList();
 
 const createCard = data => {
     resultList.innerHTML = "";
