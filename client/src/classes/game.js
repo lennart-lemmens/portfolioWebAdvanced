@@ -1,10 +1,11 @@
 export class Game {
-    constructor(id, name, cover, genres, multiplayermodes) {
+    constructor(id, name, cover, genres, multiplayermodes, platforms) {
         this.id = id;
         this.name = name;
         this.cover = cover;
         this.genres = genres;
         this.multiplayermodes = multiplayermodes;
+        this.platforms = platforms;
         this.favorite = JSON.parse(localStorage.getItem("favorites").includes(this.id)) ? true : false;
     }
 
