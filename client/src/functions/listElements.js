@@ -6,6 +6,7 @@ export const getListData = (endpoint, bodyText, selectItem) => {
         for (let item of data) {
             const option = document.createElement("option");
             option.textContent = item.name;
+            option.value = item.name;
             selectItem.appendChild(option);
         }
     })
