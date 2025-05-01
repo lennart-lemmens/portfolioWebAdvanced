@@ -50,3 +50,7 @@ button:disabled {
     box-shadow: 0 0 10px #DBE2EF;
     border-radius: 7px;
 }
+
+.favoriteIcon svg:hover {
+    fill: #FFD32C;
+}
