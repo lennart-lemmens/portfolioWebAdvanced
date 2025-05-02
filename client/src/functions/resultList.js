@@ -1,6 +1,5 @@
 import { Game } from "../classes/game.js";
-
-const resultList = document.getElementById("resultList");
+import { resultList } from "../constants/documentElements.js";
 
 // Generate result list with game cards
 export const generateResultList = (data) => {

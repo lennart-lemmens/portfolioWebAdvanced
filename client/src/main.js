@@ -2,14 +2,8 @@
 
 import { requestData } from "./functions/requestData.js";
 import { getListData } from "./functions/listElements.js";
-import { Game } from "./classes/game.js";
 import { generateResultList } from "./functions/resultList.js";
-
-const searchButton = document.getElementById("searchButton");
-const resultList = document.getElementById("resultList");
-
-const platform = document.getElementById("platform");
-const genre = document.getElementById("genre");
+import { searchButton, resultList, platform, genre } from "./constants/documentElements.js";
 
 // Select-lijsten opvullen met options
 getListData("platforms", "fields name; sort name asc; limit 50; where generation > 7;", platform);
