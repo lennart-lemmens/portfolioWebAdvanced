@@ -48,6 +48,10 @@ export class Game {
         coverImg.src = this.cover;
         coverImg.alt = `${this.name} cover image`;
         coverImg.className = "coverImage";
+        const blurredBackground = document.createElement("div");
+        blurredBackground.className = "blurredBackground";
+        blurredBackground.style.backgroundImage = `url('${this.cover}')`;
+        coverImgContainer.appendChild(blurredBackground);
         coverImgContainer.appendChild(coverImg)
 
         // Favorite icon
