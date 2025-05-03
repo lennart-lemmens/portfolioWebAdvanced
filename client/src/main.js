@@ -2,7 +2,7 @@
 
 import { requestData } from "./functions/requestData.js";
 import { getListData } from "./functions/listElements.js";
-import { generateResultList } from "./functions/resultList.js";
+import { generateResultList } from "./functions/generateResultList.js";
 import { searchButton, resultList, searchInput, platform, genre } from "./constants/documentElements.js";
 
 // Select-lijsten opvullen met options
