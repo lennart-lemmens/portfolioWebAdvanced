@@ -41,16 +41,19 @@ export class Game {
         const card = document.createElement("div");
         card.className = "gameCard";
         
-        // Cover image
+        // Cover image container
         const coverImgContainer = document.createElement("div");
         coverImgContainer.className = "coverImageContainer";
+        // Cover image
         const coverImg = document.createElement("img");
         coverImg.src = this.cover;
         coverImg.alt = `${this.name} cover image`;
         coverImg.className = "coverImage";
+        // Blurred background to replace whitespace
         const blurredBackground = document.createElement("div");
         blurredBackground.className = "blurredBackground";
         blurredBackground.style.backgroundImage = `url('${this.cover}')`;
+        
         coverImgContainer.appendChild(blurredBackground);
         coverImgContainer.appendChild(coverImg)
 
