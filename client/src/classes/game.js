@@ -1,8 +1,10 @@
+import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.js";
+
 export class Game {
     constructor(id, name, cover, genres, multiplayermodes, platforms) {
         this.id = id;
         this.name = name;
-        this.cover = cover.image_id ? `https://images.igdb.com/igdb/image/upload/t_cover_med/${cover.image_id}.jpg` : "";
+        this.cover = cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg` : "https://www.vglist.co/packs/media/images/no-cover-369ad8f0ea82dde5923c942ba1a26482.png";
         this.genres = genres;
         this.multiplayermodes = multiplayermodes ? multiplayermodes : "Singleplayer";
         this.platforms = platforms;
@@ -29,32 +31,26 @@ export class Game {
 
     getFavoriteIcon() {
         if (this.favorite) {
-            return `
-            <svg fill="#000000" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                viewBox="0 0 482.207 482.207" xml:space="preserve">
-            <polygon points="482.207,186.973 322.508,153.269 241.104,11.803 159.699,153.269 0,186.973 109.388,308.108 92.094,470.404 
-                241.104,403.803 390.113,470.404 372.818,308.108 "/>
-            </svg>
-            `;
+            return favoriteIconFull
         } else {
-            return `
-            <svg fill="#000000" height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                viewBox="0 0 482.207 482.207" xml:space="preserve">
-            <path d="M482.207,186.973l-159.699-33.705L241.104,11.803l-81.404,141.465L0,186.973l109.388,121.134L92.094,470.404l149.01-66.6
-                l149.01,66.6l-17.294-162.296L482.207,186.973z M241.104,370.943l-113.654,50.798l13.191-123.788l-83.433-92.393l121.807-25.707
-                l62.09-107.9l62.09,107.9L425,205.561l-83.433,92.393l13.191,123.788L241.104,370.943z"/>
-            </svg>
-            `;
+            return favoriteIconEmpty;
         }
     }
 
     createCard() {
         const card = document.createElement("div");
+        card.className = "gameCard";
         
+        // Cover image
+        const coverImgContainer = document.createElement("div");
+        coverImgContainer.className = "coverImageContainer";
         const coverImg = document.createElement("img");
         coverImg.src = this.cover;
         coverImg.alt = `${this.name} cover image`;
+        coverImg.className = "coverImage";
+        coverImgContainer.appendChild(coverImg)
 
+        // Favorite icon
         const favoriteIcon = document.createElement("div");
         favoriteIcon.className = "favoriteIcon";
         favoriteIcon.innerHTML = this.getFavoriteIcon();
@@ -63,12 +59,16 @@ export class Game {
             favoriteIcon.innerHTML = this.getFavoriteIcon();
         })
 
+        // Game info
+        const gameInfo = document.createElement("div");
+        gameInfo.className = "gameInfo";
         const h1 = document.createElement("h1");
         h1.textContent = this.name;
+        gameInfo.appendChild(h1);
         
-        card.appendChild(coverImg);
+        card.appendChild(coverImgContainer);
         card.appendChild(favoriteIcon);
-        card.appendChild(h1);
+        card.appendChild(gameInfo);
 
         return card;
     }
