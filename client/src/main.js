@@ -3,7 +3,7 @@
 import { requestData } from "./functions/requestData.js";
 import { getListData } from "./functions/listElements.js";
 import { generateResultList } from "./functions/resultList.js";
-import { searchButton, resultList, platform, genre } from "./constants/documentElements.js";
+import { searchButton, resultList, searchInput, platform, genre } from "./constants/documentElements.js";
 
 // Select-lijsten opvullen met options
 getListData("platforms", "fields name; sort name asc; limit 220;", platform);
@@ -14,16 +14,19 @@ searchButton.addEventListener("click", () => {
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
 
+    let search = searchInput ? `search "${searchInput.value}";` : "";
+
     let filters = "where ";
     filters += platform.value ? `platforms.name = ("${platform.value}") & ` : "";
     filters += genre.value ? `genres.name = ("${genre.value}") & ` : "";
-    filters = filters.substring(0, filters.length-3);
+    filters = filters.substring(0, filters.length-3); // Remove last &
     filters += ";";
     if (filters === "whe;") filters = "";
 
     requestData("games", `
           fields name, cover.image_id, genres.name, multiplayer_modes.*, platforms.name;
           limit 60;
+          ${search}
           ${filters}
       `)
     .then(data => {
