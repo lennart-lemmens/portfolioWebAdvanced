@@ -7,21 +7,25 @@ Colors:
 */
 
 body {
+    margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #112D4E;
+    background-color: #F9F7F7;
 }
 
 /* Form start */
 #filters {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 1rem auto;
-    padding: 1rem 2rem;
-    border: 1px solid #DBE2EF;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #DBE2EF;
-    width: fit-content;
+    margin: 0;
+    padding: 2rem;
+    box-shadow: 0 0 10px #3F72AF;
+    width: 100vw;
+    background-color: #112D4E;
 }
 
 select, button {
@@ -30,7 +34,8 @@ select, button {
 
 select {
     width: 200px;
-    color: #112D4E;
+    color: #DBE2EF;
+    background-color: #112D4E;
     border: 0;
 }
 
