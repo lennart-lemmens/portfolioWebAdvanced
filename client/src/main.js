@@ -14,7 +14,7 @@ searchButton.addEventListener("click", () => {
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
 
-    let search = searchInput ? `search "${searchInput.value}";` : "";
+    let search = searchInput.value ? `search "${searchInput.value}";` : "";
 
     let filters = "where ";
     filters += platform.value ? `platforms.name = ("${platform.value}") & ` : "";
