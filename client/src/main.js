@@ -6,7 +6,7 @@ import { generateResultList } from "./functions/resultList.js";
 import { searchButton, resultList, platform, genre } from "./constants/documentElements.js";
 
 // Select-lijsten opvullen met options
-getListData("platforms", "fields name; sort name asc; limit 50; where generation > 7;", platform);
+getListData("platforms", "fields name; sort name asc; limit 220;", platform);
 getListData("genres", "fields name; sort name asc; limit 25;", genre);
 
 searchButton.addEventListener("click", () => {
