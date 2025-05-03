@@ -4,6 +4,7 @@ import { requestData } from "./functions/requestData.js";
 import { getListData } from "./functions/listElements.js";
 import { generateResultList } from "./functions/generateResultList.js";
 import { searchButton, resultList, searchInput, platform, genre } from "./constants/documentElements.js";
+import { closeGamePage } from "./functions/gamePage.js";
 
 // Select-lijsten opvullen met options
 getListData("platforms", "fields name; sort name asc; limit 220;", platform);
@@ -41,3 +42,5 @@ searchButton.addEventListener("click", () => {
         searchButton.removeAttribute("disabled");
     });
 });
+
+closebtn.addEventListener("click", closeGamePage);
