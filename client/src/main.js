@@ -1,34 +1,28 @@
 "use strict";
 
-import { requestData } from "./functions/requestData.js";
+import { requestGameData } from "./functions/requestGameData.js";
 import { getListData } from "./functions/listElements.js";
 import { generateResultList } from "./functions/generateResultList.js";
 import { searchButton, resultList, searchInput, platform, genre } from "./constants/documentElements.js";
 
 // Select-lijsten opvullen met options
-getListData("platforms", "fields name; sort name asc; limit 220;", platform);
-getListData("genres", "fields name; sort name asc; limit 25;", genre);
+getListData("platforms", 220, platform);
+getListData("genres", 25, genre);
 
 searchButton.addEventListener("click", () => {
     searchButton.textContent = "Loading...";
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
 
-    let search = searchInput.value ? `search "${searchInput.value}";` : "";
+    let search = searchInput.value;
 
-    let filters = "where ";
-    filters += platform.value ? `platforms.name = ("${platform.value}") & ` : "";
-    filters += genre.value ? `genres.name = ("${genre.value}") & ` : "";
-    filters = filters.substring(0, filters.length-3); // Remove last &
-    filters += ";";
-    if (filters === "whe;") filters = "";
+    let filters = {
+        platform: platform.value,
+        genre: genre.value
+    }
 
-    requestData("games", `
-          fields name, cover.image_id, genres.name, multiplayer_modes.*, platforms.name;
-          limit 60;
-          ${search}
-          ${filters}
-      `)
+
+    requestGameData(search, filters)
     .then(data => {
         generateResultList(data);
     })
