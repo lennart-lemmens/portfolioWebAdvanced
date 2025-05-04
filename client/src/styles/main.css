@@ -6,6 +6,9 @@ Colors:
     #112D4E
 */
 
+@import url(./components/searchBar.css);
+@import url(./components/gameCard.css);
+
 body {
     margin: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
