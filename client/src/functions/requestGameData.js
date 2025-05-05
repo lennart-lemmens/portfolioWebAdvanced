@@ -2,7 +2,7 @@ import { searchButton, resultList, searchInput, platform, genre } from "../const
 import { generateResultList } from "./generateResultList";
 
 // Fetch game data and display it in the result list
-export const requestGameData = async (search, filters) => {
+export const requestGameData = async () => {
     searchButton.textContent = "Loading...";
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";

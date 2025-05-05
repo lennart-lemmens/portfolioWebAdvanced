@@ -10,7 +10,7 @@ getListData("genres", 25, genre);
 
 // Clicking the search button fetches game data
 searchButton.addEventListener("click", () => {
-    requestGameData(search, filters);
+    requestGameData();
 });
 
 // Pressing enter in input field triggers search
