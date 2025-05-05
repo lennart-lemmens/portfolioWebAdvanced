@@ -35,3 +35,11 @@ searchButton.addEventListener("click", () => {
         searchButton.removeAttribute("disabled");
     });
 });
+
+// Pressing enter in input field triggers search
+searchInput.addEventListener("keypress", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchButton.click();
+    }
+}); // https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
