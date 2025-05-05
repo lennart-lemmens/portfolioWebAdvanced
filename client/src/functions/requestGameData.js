@@ -1,20 +1,13 @@
-import { searchButton, resultList, searchInput, platform, genre } from "../constants/documentElements";
+import { searchButton, resultList } from "../constants/documentElements";
 import { generateResultList } from "./generateResultList";
 
 // Fetch game data and display it in the result list
-export const requestGameData = async () => {
+export const requestGameData = async (search, filters, offset) => {
     searchButton.textContent = "Loading...";
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
-
-    let search = searchInput.value;
-
-    let filters = {
-        platform: platform.value,
-        genre: genre.value
-    }
     
-    return fetch(`http://localhost:8080/games?search=${search}`, {
+    return fetch(`http://localhost:8080/games?search=${search}&offset=${offset}`, {
         method: "POST",
         headers: {
             "Content-type": "application/json"

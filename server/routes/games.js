@@ -7,6 +7,7 @@ const gamesRouter = express.Router();
 gamesRouter.post("/", async (req, res) => {
     const search = req.query.search;
     const filters = req.body;
+    const offset = req.query.offset;
 
     let searchString = search ? `search "${search}";` : "";
 
@@ -17,7 +18,8 @@ gamesRouter.post("/", async (req, res) => {
     
     requestData("games", `
           fields name, cover.image_id, genres.name, game_modes.name, platforms.name, storyline;
-          limit 60;
+          limit 100;
+          offset ${offset};
           ${searchString}
           ${filtersString}
     `)
