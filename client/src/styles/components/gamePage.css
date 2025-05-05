@@ -1,0 +1,19 @@
+.gamePage {
+    position: relative;
+    width: 50vw;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.returnLink:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.gamePageCoverImage {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #DBE2EF;
+}

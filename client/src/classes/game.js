@@ -1,14 +1,33 @@
 import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.js";
+import { resultList } from "../constants/documentElements.js";
 
 export class Game {
-    constructor(id, name, cover, genres, multiplayermodes, platforms) {
+    constructor(id, name, cover, genres, gamemodes, platforms) {
         this.id = id;
         this.name = name;
-        this.cover = cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg` : "https://www.vglist.co/packs/media/images/no-cover-369ad8f0ea82dde5923c942ba1a26482.png";
+        this._cover = "";
+        this.cover = cover;
         this.genres = genres;
-        this.multiplayermodes = multiplayermodes ? multiplayermodes : "Singleplayer";
+        this.gamemodes = gamemodes;
         this.platforms = platforms;
-        this.favorite = (JSON.parse(localStorage.getItem("favorites")) && JSON.parse(localStorage.getItem("favorites").includes(this.id))) ? true : false;
+        this.favorite = this.setFavorite();
+    }
+
+    get cover() {
+        return this._cover;
+    }
+
+    set cover(value) {
+        this._cover = value ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${value.image_id}.jpg` : "https://www.vglist.co/packs/media/images/no-cover-369ad8f0ea82dde5923c942ba1a26482.png";
+    }
+
+    getList(array) {
+        return array.map(object => object.name).join(", ");
+    }
+
+    setFavorite() {
+        const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+        return favorites.includes(this.id);
     }
 
     toggleFavorite() {
@@ -26,7 +45,6 @@ export class Game {
             this.favorite = true;
         }
         localStorage.setItem("favorites", JSON.stringify(favorites));
-        console.log(this.favorite);
     } // https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
 
     getFavoriteIcon() {
@@ -77,6 +95,55 @@ export class Game {
         card.appendChild(favoriteIcon);
         card.appendChild(gameInfo);
 
+        card.addEventListener("click", () => this.showGamePage());
+
         return card;
+    }
+
+    showGamePage() {
+        const gamePage = document.createElement("article");
+        gamePage.className = "gamePage";
+
+        // Link to result page
+        const returnLink = document.createElement("a");
+        returnLink.className = "returnLink";
+        returnLink.textContent = "< back";
+        returnLink.addEventListener("click", () => alert("Placeholder: return to result page."));
+
+        // Favorite icon
+        const favoriteIcon = document.createElement("div");
+        favoriteIcon.className = "favoriteIcon";
+        favoriteIcon.innerHTML = this.getFavoriteIcon();
+        favoriteIcon.addEventListener("click", () => {
+            this.toggleFavorite();
+            favoriteIcon.innerHTML = this.getFavoriteIcon();
+        })
+
+        // Game title
+        const h1 = document.createElement("h1");
+        h1.textContent = this.name;
+
+        // Game cover
+        const coverImg = document.createElement("img");
+        coverImg.src = this.cover;
+        coverImg.alt = `${this.name} cover image`;
+        coverImg.className = "gamePageCoverImage";
+
+        // Game info
+        const ul = document.createElement("ul");
+        ul.innerHTML = `
+        <li>Genres: ${this.getList(this.genres)}</li>
+        <li>Game modes: ${this.getList(this.gamemodes)}</li>
+        <li>Platforms: ${this.getList(this.platforms)}</li>
+        `;
+
+        gamePage.appendChild(returnLink);
+        gamePage.appendChild(favoriteIcon);
+        gamePage.appendChild(h1);
+        gamePage.appendChild(coverImg);
+        gamePage.appendChild(ul);
+
+        resultList.innerHTML = "";
+        resultList.appendChild(gamePage);
     }
 }

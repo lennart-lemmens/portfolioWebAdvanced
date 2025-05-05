@@ -5,7 +5,7 @@ import { resultList } from "../constants/documentElements.js";
 export const generateResultList = (data) => {
     resultList.innerHTML = "";
     for (let item of data) {
-        const game = new Game(item.id, item.name, item.cover, item.genres, item.multiplayer_modes, item.platforms);
+        const game = new Game(item.id, item.name, item.cover, item.genres, item.game_modes, item.platforms);
         resultList.appendChild(game.createCard());
     }
 }

@@ -6,6 +6,8 @@
 
 .gamePage > .favoriteIcon {
     position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .favoriteIcon svg:hover {
