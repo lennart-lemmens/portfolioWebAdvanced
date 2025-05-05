@@ -1,0 +1,8 @@
+#resultList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 80vw;
+    margin: 2rem auto;
+}
