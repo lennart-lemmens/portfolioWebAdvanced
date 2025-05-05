@@ -1,5 +1,7 @@
 import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.js";
 import { resultList } from "../constants/documentElements.js";
+import { search, filters, offset } from "../main.js";
+import { requestGameData } from "../functions/requestGameData.js";
 
 export class Game {
     constructor(id, name, cover, genres, gamemodes, platforms, storyline) {
@@ -118,7 +120,7 @@ export class Game {
         const returnLink = document.createElement("a");
         returnLink.className = "returnLink";
         returnLink.textContent = "< back";
-        returnLink.addEventListener("click", () => alert("Placeholder: return to result page."));
+        returnLink.addEventListener("click", () => requestGameData(search, filters, offset));
 
         // Favorite icon
         const favoriteIcon = document.createElement("div");
@@ -130,8 +132,8 @@ export class Game {
         })
 
         // Game title
-        const h1 = document.createElement("h1");
-        h1.textContent = this.name;
+        const gameTitle = document.createElement("h1");
+        gameTitle.textContent = this.name;
 
         // Cover and info container
         const coverAndInfoContainer = document.createElement("div");
@@ -171,7 +173,7 @@ export class Game {
 
         gamePage.appendChild(returnLink);
         gamePage.appendChild(favoriteIcon);
-        gamePage.appendChild(h1);
+        gamePage.appendChild(gameTitle);
         gamePage.appendChild(coverAndInfoContainer);
         gamePage.appendChild(gameStoryline);
 
