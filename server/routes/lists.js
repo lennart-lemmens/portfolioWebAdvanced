@@ -1,0 +1,11 @@
+import express from "express";
+import { requestData } from "../controllers/requestData.js";
+
+const listsRouter = express.Router();
+
+listsRouter.post("/:endpoint", async (req, res) => {
+    requestData(req.params.endpoint, `fields name; sort name asc; limit ${req.query.limit};`)
+    .then(data => res.send(data));
+});
+
+export default listsRouter;
