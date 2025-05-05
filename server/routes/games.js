@@ -3,6 +3,7 @@ import { requestData } from "../controllers/requestData.js";
 
 const gamesRouter = express.Router();
 
+// Request game data from API
 gamesRouter.post("/", async (req, res) => {
     const search = req.query.search;
     const filters = req.body;

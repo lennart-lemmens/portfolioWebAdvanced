@@ -19,7 +19,7 @@ const getAccessToken = async () => {
     });
 };
 
-// Request game data from API
+// Request data from API
 export const requestData = async (endpoint, bodyText) => {
   const accessToken = await getAccessToken();
 
