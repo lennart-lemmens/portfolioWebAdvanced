@@ -15,21 +15,18 @@ app.post("/games", async (req, res) => {
     const search = req.query.search;
     const filters = req.body;
 
-    let searchValue = search ? `search "${search}";` : "";
+    let searchString = search ? `search "${search}";` : "";
 
-    let filtersValue = "where ";
-    filtersValue += filters.platform ? `platforms.name = "${filters.platform}" & ` : "";
-    filtersValue += filters.genre ? `genres.name = "${filters.genre}" & ` : "";
-    filtersValue = filtersValue.substring(0, filtersValue.length-3); // Remove last '&'
-    filtersValue += ";";
-    if (filtersValue === "whe;") filtersValue = "";
-    // TO DO: rework with for loop
+    let validFilters = Object.entries(filters)
+        .filter(([_, value]) => value)
+        .map(([key, value]) => `${key}s.name = "${value}"`);
+    let filtersString = validFilters.length ? `where ${validFilters.join(" & ")};` : "";
     
     requestData("games", `
           fields name, cover.image_id, genres.name, multiplayer_modes.*, platforms.name;
           limit 60;
-          ${searchValue}
-          ${filtersValue}
+          ${searchString}
+          ${filtersString}
     `)
     .then(data => res.json(data));
 });
