@@ -31,8 +31,8 @@ export class Game {
         this._storyline = value ? value : "";
     }
 
-    getList(array) {
-        return array.map(object => object.name).join(", ");
+    getList(object) {
+        return `<ul>${object.map(item => `<li>${item.name}</li>`).join('')}</ul>`;
     }
 
     setFavorite() {
@@ -145,25 +145,35 @@ export class Game {
         // Game info
         const gameInfo = document.createElement("div");
         gameInfo.className = "gamePageInfo";
-        const ul = document.createElement("ul");
-        ul.innerHTML = `
-        <li>Genres: ${this.getList(this.genres)}</li>
-        <li>Game modes: ${this.getList(this.gamemodes)}</li>
-        <li>Platforms: ${this.getList(this.platforms)}</li>
+        const column1 = document.createElement("div");
+        column1.innerHTML = `
+        <h3>Genres:</h3>
+        ${this.getList(this.genres)}
         `;
-        gameInfo.appendChild(ul);
+        const column2 = document.createElement("div");
+        column2.innerHTML = `
+        <h3>Game modes:</h3>
+        ${this.getList(this.gamemodes)}
+        `;
+        const column3 = document.createElement("div");
+        column3.innerHTML = `
+        <h3>Platforms:</h3>
+        ${this.getList(this.platforms)}
+        `;
+        gameInfo.appendChild(column1);
+        gameInfo.appendChild(column2);
+        gameInfo.appendChild(column3);
         coverAndInfoContainer.appendChild(gameInfo);
 
         // Game description
-        const gameDescription = document.createElement("p");
-        gameDescription.textContent = this.storyline;
-
+        const gameStoryline = document.createElement("p");
+        gameStoryline.textContent = this.storyline;
 
         gamePage.appendChild(returnLink);
         gamePage.appendChild(favoriteIcon);
         gamePage.appendChild(h1);
         gamePage.appendChild(coverAndInfoContainer);
-        gamePage.appendChild(gameDescription);
+        gamePage.appendChild(gameStoryline);
 
         resultList.innerHTML = "";
         resultList.appendChild(gamePage);

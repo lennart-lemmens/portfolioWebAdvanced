@@ -1,6 +1,7 @@
 .gamePage {
     position: relative;
     width: 50vw;
+    min-width: 700px;
     text-align: left;
     margin: 0 auto;
 }
@@ -13,13 +14,21 @@
 .coverAndInfoContainer {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
-    margin: 2rem 0;
+    gap: 4rem;
+    margin-bottom: 2rem;
 }
 
 .gamePageCoverImage {
     width: 200px;
     height: auto;
+    align-self: flex-start;
+    margin-top: 1.2rem;
     border-radius: 3px;
     box-shadow: 0 0 10px #DBE2EF;
+}
+
+.gamePageInfo {
+    display: flex;
+    gap: 0 4rem;
+    flex-wrap: wrap;
 }
