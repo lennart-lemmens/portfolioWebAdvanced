@@ -2,7 +2,7 @@ import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.j
 import { resultList } from "../constants/documentElements.js";
 
 export class Game {
-    constructor(id, name, cover, genres, gamemodes, platforms) {
+    constructor(id, name, cover, genres, gamemodes, platforms, storyline) {
         this.id = id;
         this.name = name;
         this._cover = "";
@@ -10,6 +10,8 @@ export class Game {
         this.genres = genres;
         this.gamemodes = gamemodes;
         this.platforms = platforms;
+        this._storyline = "";
+        this.storyline = storyline;
         this.favorite = this.setFavorite();
     }
 
@@ -19,6 +21,14 @@ export class Game {
 
     set cover(value) {
         this._cover = value ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${value.image_id}.jpg` : "https://www.vglist.co/packs/media/images/no-cover-369ad8f0ea82dde5923c942ba1a26482.png";
+    }
+
+    get storyline() {
+        return this._storyline;
+    }
+
+    set storyline(value) {
+        this._storyline = value ? value : "";
     }
 
     getList(array) {
@@ -123,25 +133,37 @@ export class Game {
         const h1 = document.createElement("h1");
         h1.textContent = this.name;
 
+        // Cover and info container
+        const coverAndInfoContainer = document.createElement("div");
+        coverAndInfoContainer.className = "coverAndInfoContainer";
         // Game cover
         const coverImg = document.createElement("img");
         coverImg.src = this.cover;
         coverImg.alt = `${this.name} cover image`;
         coverImg.className = "gamePageCoverImage";
-
+        coverAndInfoContainer.appendChild(coverImg);
         // Game info
+        const gameInfo = document.createElement("div");
+        gameInfo.className = "gamePageInfo";
         const ul = document.createElement("ul");
         ul.innerHTML = `
         <li>Genres: ${this.getList(this.genres)}</li>
         <li>Game modes: ${this.getList(this.gamemodes)}</li>
         <li>Platforms: ${this.getList(this.platforms)}</li>
         `;
+        gameInfo.appendChild(ul);
+        coverAndInfoContainer.appendChild(gameInfo);
+
+        // Game description
+        const gameDescription = document.createElement("p");
+        gameDescription.textContent = this.storyline;
+
 
         gamePage.appendChild(returnLink);
         gamePage.appendChild(favoriteIcon);
         gamePage.appendChild(h1);
-        gamePage.appendChild(coverImg);
-        gamePage.appendChild(ul);
+        gamePage.appendChild(coverAndInfoContainer);
+        gamePage.appendChild(gameDescription);
 
         resultList.innerHTML = "";
         resultList.appendChild(gamePage);

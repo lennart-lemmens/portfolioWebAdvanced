@@ -10,8 +10,14 @@
     text-decoration: underline;
 }
 
+.coverAndInfoContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
 .gamePageCoverImage {
-    display: inline-block;
     width: 200px;
     height: auto;
     border-radius: 3px;
