@@ -1,0 +1,14 @@
+.gameCard > .favoriteIcon {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+}
+
+.gamePage > .favoriteIcon {
+    position: absolute;
+}
+
+.favoriteIcon svg:hover {
+    fill: #FFD32C;
+    cursor: pointer;
+}

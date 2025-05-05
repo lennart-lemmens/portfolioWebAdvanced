@@ -11,6 +11,7 @@
 
 .gameCard:hover {
     transform: scale(1.01);
+    cursor: pointer;
 }
 
 .coverImageContainer {
@@ -53,14 +54,4 @@
 .gameInfo h1 {
     font-size: 1rem;
     margin-right: 1.2rem;
-}
-
-.favoriteIcon {
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-}
-
-.favoriteIcon svg:hover {
-    fill: #FFD32C;
 }
