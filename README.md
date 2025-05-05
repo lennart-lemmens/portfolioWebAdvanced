@@ -39,4 +39,4 @@
 
 # Gebruikte bronnen (inclusief AI chatlog)
 - https://api-docs.igdb.com/#getting-started
-- https://sentry.io/answers/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript/
+- https://www.codecademy.com/enrolled/courses/learn-express
