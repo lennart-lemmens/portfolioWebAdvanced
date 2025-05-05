@@ -103,9 +103,9 @@ export class Game {
         // Game info
         const gameInfo = document.createElement("div");
         gameInfo.className = "gameInfo";
-        const h1 = document.createElement("h1");
-        h1.textContent = this.name;
-        gameInfo.appendChild(h1);
+        const gameTitle = document.createElement("h1");
+        gameTitle.textContent = this.name;
+        gameInfo.appendChild(gameTitle);
         const platformList = document.createElement("p");
         platformList.textContent = this.getGameCardList(this.platforms);
         gameInfo.appendChild(platformList);

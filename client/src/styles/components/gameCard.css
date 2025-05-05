@@ -46,7 +46,10 @@
 }
 
 .gameInfo {
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .5rem 1.2rem .2rem;
     width: 60%;
     box-sizing: border-box;
 }
