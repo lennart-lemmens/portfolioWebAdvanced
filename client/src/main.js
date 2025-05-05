@@ -14,7 +14,7 @@ getListData("genres", 25, genre);
 
 // Clicking the search button fetches game data
 searchButton.addEventListener("click", () => {
-    search = searchInput.value;
+    search = searchInput.value.trim();
     filters = {
         platform: platform.value,
         genre: genre.value

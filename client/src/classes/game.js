@@ -34,7 +34,11 @@ export class Game {
     }
 
     getList(object) {
-        return `<ul>${object.map(item => `<li>${item.name}</li>`).join('')}</ul>`;
+        return object ? `<ul>${object.map(item => `<li>${item.name}</li>`).join('')}</ul>` : "";
+    }
+
+    getGameCardList(object) {
+        return object ? `${object.map(item => item.name).join(', ')}` : "";
     }
 
     setFavorite() {
@@ -102,6 +106,9 @@ export class Game {
         const h1 = document.createElement("h1");
         h1.textContent = this.name;
         gameInfo.appendChild(h1);
+        const platformList = document.createElement("p");
+        platformList.textContent = this.getGameCardList(this.platforms);
+        gameInfo.appendChild(platformList);
         
         card.appendChild(coverImgContainer);
         card.appendChild(favoriteIcon);
