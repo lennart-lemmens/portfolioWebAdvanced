@@ -34,6 +34,5 @@ export const requestData = async (endpoint, bodyText) => {
   });
 
   const data = await response.json();
-  console.log(bodyText);
   return data;
 };
