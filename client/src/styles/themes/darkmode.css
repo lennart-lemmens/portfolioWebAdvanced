@@ -10,3 +10,7 @@ body.darkmode {
 .darkmode .gameCard, .darkmode .gamePageCoverImage {
     box-shadow: 0 0 10px #3F72AF;
 }
+
+.darkmode #navBar {
+    box-shadow: none;
+}
