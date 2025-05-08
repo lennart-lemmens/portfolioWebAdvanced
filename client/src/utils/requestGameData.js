@@ -1,9 +1,9 @@
-import { searchButton, resultList } from "../constants/documentElements";
+import { searchButton, searchButtonImage, resultList } from "../constants/documentElements";
 import { generateResultList } from "./generateResultList";
 
 // Fetch game data and display it in the result list
 export const requestGameData = async (search, filters, offset) => {
-    searchButton.textContent = "Loading...";
+    searchButtonImage.src = "./src/assets/clock.svg";
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
     
@@ -20,7 +20,7 @@ export const requestGameData = async (search, filters, offset) => {
     })
     .catch(error => console.error(error))
     .finally(() => {
-        searchButton.textContent = "Search";
+        searchButtonImage.src = "./src/assets/search.svg";
         searchButton.removeAttribute("disabled");
     });
 }

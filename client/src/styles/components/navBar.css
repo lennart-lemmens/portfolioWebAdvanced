@@ -48,11 +48,20 @@
 }
 
 #searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     background-color: #3F72AF;
+}
+
+#searchButton:disabled {
+    background-color: #F9F7F7;
+    opacity: .7;
+    color: #DBE2EF;
 }
 
 select, button {
@@ -69,11 +78,6 @@ select {
 button:hover {
     cursor: pointer;
     opacity: .8;
-}
-
-button:disabled {
-    background-color: #F9F7F7;
-    color: #DBE2EF;
 }
 
 #favoritesButton svg {
