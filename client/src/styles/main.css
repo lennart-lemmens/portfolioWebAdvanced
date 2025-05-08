@@ -12,6 +12,7 @@ Colors:
 @import url(./components/favoriteIcon.css);
 @import url(./components/gamePage.css);
 @import url(./components/tooltip.css);
+@import url(./themes/darkmode.css);
 
 body {
     margin: 0;

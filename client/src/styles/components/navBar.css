@@ -90,3 +90,15 @@ button:hover {
     display: flex;
     gap: 0 2rem;
 }
+
+#darkmodeButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+}
+
+#darkmodeButton:hover {
+    cursor: pointer;
+    opacity: .8;
+}

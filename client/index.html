@@ -5,14 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/gamepad.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Web Advanced</title>
-    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/main.css" />
   </head>
   <body>
     <nav id="navBar">
+      <div id="darkmodeButton"><img src="./src/assets/moon.svg" alt="" /></div>
       <div id="searchContainer">
         <div id="searchBar">
-          <input type="text" placeholder="Search" id="searchInput">
-          <button id="searchButton"><img src="src/assets/search.svg" alt="Search button" id="searchButtonImage"></button>
+          <input type="text" placeholder="Search" id="searchInput" />
+          <button id="searchButton">
+            <img src="src/assets/search.svg" alt="Search button" id="searchButtonImage" />
+          </button>
         </div>
         <div class="tooltip">
           <div id="favoritesButton"></div>
@@ -21,16 +24,15 @@
       </div>
       <div id="filters">
         <select name="platform" id="platform">
-        <option value="" selected>Platform</option>
-      </select>
-      <select name="genre" id="genre">
-        <option value="" selected>Genre</option>
-      </select>
-      <select name="gamemode" id="gamemode">
-        <option value="" selected>Game mode</option>
-      </select>
+          <option value="" selected>Platform</option>
+        </select>
+        <select name="genre" id="genre">
+          <option value="" selected>Genre</option>
+        </select>
+        <select name="gamemode" id="gamemode">
+          <option value="" selected>Game mode</option>
+        </select>
       </div>
-      
     </nav>
 
     <div id="resultList"></div>

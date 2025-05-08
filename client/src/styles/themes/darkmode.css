@@ -1,1 +1,12 @@
-/* TO DO: add dark mode */
+body.darkmode {
+    background-color: #112D4E;
+    color: #F9F7F7;
+}
+
+.darkmode svg {
+    fill: #F9F7F7;
+}
+
+.darkmode .gameCard, .darkmode .gamePageCoverImage {
+    box-shadow: 0 0 10px #3F72AF;
+}
