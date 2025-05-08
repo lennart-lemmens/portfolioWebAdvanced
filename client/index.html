@@ -8,15 +8,29 @@
     <link rel="stylesheet" href="src/styles/main.css">
   </head>
   <body>
-    <nav id="searchBar">
-      <input type="text" placeholder="Search" id="searchInput">
-      <select name="platform" id="platform">
-        <option value="" selected>--Platform</option>
+    <nav id="navBar">
+      <div id="searchContainer">
+        <div id="searchBar">
+          <input type="text" placeholder="Search" id="searchInput">
+          <button id="searchButton"><img src="src/assets/search.svg" alt="Search button"></button>
+        </div>
+        <div class="tooltip">
+          <div id="favoritesButton" style="color: white;"></div>
+          <div class="tooltiptext">Favorites</div>
+        </div>
+      </div>
+      <div id="filters">
+        <select name="platform" id="platform">
+        <option value="" selected>Platform</option>
       </select>
       <select name="genre" id="genre">
-        <option value="" selected>--Genre</option>
+        <option value="" selected>Genre</option>
       </select>
-      <button id="searchButton">Search</button>
+      <select name="gamemode" id="gamemode">
+        <option value="" selected>Game mode</option>
+      </select>
+      </div>
+      
     </nav>
 
     <div id="resultList"></div>

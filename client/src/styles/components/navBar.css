@@ -1,0 +1,91 @@
+#navBar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem 2rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 2rem 0;
+    box-shadow: 0 0 10px #3F72AF;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #112D4E;
+}
+
+#searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 650px;
+}
+
+#searchBar {
+    width: 90%;
+    background: rgba(63, 114, 175, 0.3);
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 60px;
+    padding: .2rem .3rem .2rem 1.2rem;
+}
+
+#searchBar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 0;
+    color: #F9F7F7;
+}
+
+#searchBar input::placeholder {
+    color: #DBE2EF;
+    opacity: .5;
+}
+
+#searchButton {
+    border: 0;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: #3F72AF;
+}
+
+select, button {
+    height: 30px;
+}
+
+select {
+    width: 200px;
+    color: #DBE2EF;
+    background-color: #112D4E;
+    border: 0;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+button:disabled {
+    background-color: #F9F7F7;
+    color: #DBE2EF;
+}
+
+#favoritesButton svg {
+    fill: #DBE2EF;
+}
+
+#favoritesButton:hover {
+    opacity: .7;
+    cursor: pointer;
+}
+
+#filters {
+    display: flex;
+    gap: 0 2rem;
+}
