@@ -95,7 +95,8 @@ export class Game {
         const favoriteIcon = document.createElement("div");
         favoriteIcon.className = "favoriteIcon";
         favoriteIcon.innerHTML = this.getFavoriteIcon();
-        favoriteIcon.addEventListener("click", () => {
+        favoriteIcon.addEventListener("click", event => {
+            event.stopPropagation();
             this.toggleFavorite();
             favoriteIcon.innerHTML = this.getFavoriteIcon();
         })
