@@ -6,11 +6,11 @@ Colors:
     #112D4E
 */
 
-@import url(./components/navBar.css);
+@import url(./navBar.css);
+@import url(./resultList.css);
+@import url(./gamePage.css);
 @import url(./components/gameCard.css);
-@import url(./components/resultList.css);
 @import url(./components/favoriteIcon.css);
-@import url(./components/gamePage.css);
 @import url(./components/tooltip.css);
 @import url(./themes/darkmode.css);
 
