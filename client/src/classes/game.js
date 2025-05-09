@@ -61,7 +61,7 @@ export class Game {
             this.favorite = true;
         }
         localStorage.setItem("favorites", JSON.stringify(favorites));
-    } // https://stackoverflow.com/questions/19635077/adding-objects-to-array-in-localstorage
+    }
 
     getFavoriteIcon() {
         if (this.favorite) {

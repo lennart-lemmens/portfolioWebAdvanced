@@ -11,7 +11,7 @@ const getAccessToken = async () => {
     {
       method: "POST",
     }
-  ) // Source: https://api-docs.igdb.com/#getting-started
+  )
     .then(response => response.json())
     .then(data => data.access_token)
     .catch(error => {

@@ -1,3 +1,4 @@
+// Fetch data from API and fill select lists with options
 export const getListData = (endpoint, limit, selectItem) => {
     fetch(`http://localhost:8080/lists/${endpoint}?limit=${limit}`, {
         method: "POST",

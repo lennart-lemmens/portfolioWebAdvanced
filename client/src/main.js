@@ -42,4 +42,4 @@ searchInput.addEventListener("keypress", event => {
       event.preventDefault();
       searchButton.click();
     }
-}); // https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+});

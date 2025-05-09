@@ -1,5 +1,6 @@
 import { darkmodeButton } from "../constants/documentElements";
 
+// Switch between light and dark mode
 export const toggleDarkmode = () => {
     document.body.classList.toggle("darkmode");
     if (document.body.classList.contains("darkmode")) {
@@ -10,6 +11,7 @@ export const toggleDarkmode = () => {
     setDarkmodeIcon();
 }
 
+// Check in local storage if dark mode should be applied
 export const checkDarkmode = () => {
     if (localStorage.getItem("darkmode") === "true") {
         document.body.className = "darkmode";
@@ -17,6 +19,7 @@ export const checkDarkmode = () => {
     }
 }
 
+// Switch between dark mode icons
 const setDarkmodeIcon = () => {
     if (localStorage.getItem("darkmode") === "true") {
         darkmodeButton.firstChild.src = "./src/assets/sun.svg";

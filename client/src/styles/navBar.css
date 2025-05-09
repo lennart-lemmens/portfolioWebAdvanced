@@ -50,7 +50,7 @@
 #searchBar input:-webkit-autofill {
     -webkit-text-fill-color: #F9F7F7;
     transition: background-color 5000s ease-in-out 0s;
-} /* https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/ */
+}
 
 #searchButton {
     display: flex;

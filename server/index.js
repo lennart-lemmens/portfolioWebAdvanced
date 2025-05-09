@@ -12,10 +12,9 @@ const port = 8080;
 app.use(express.json());
 app.use(cors(corsOptions));
 
+// Routers
 app.use("/games", gamesRouter);
 app.use("/lists", listsRouter);
-
-// TO DO: add error handling middleware
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
