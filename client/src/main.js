@@ -3,6 +3,7 @@
 import { requestGameData } from "./utils/requestGameData.js";
 import { getListData } from "./utils/listElements.js";
 import { toggleDarkmode, checkDarkmode } from "./utils/darkmode.js";
+import { showFavorites } from "./utils/showFavorites.js";
 import { searchButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode } from "./constants/documentElements.js";
 import { favoriteIconFull } from "./constants/favoriteIcon.js";
 
@@ -15,22 +16,21 @@ getListData("platforms", 220, platform);
 getListData("genres", 25, genre);
 getListData("game_modes", 6, gamemode);
 
-// Add favorite icon
+// Favorites button
 favoritesButton.innerHTML = favoriteIconFull;
+favoritesButton.addEventListener("click", () => showFavorites());
 
-// Clicking the dark mode button toggles dark mode
+// Dark mode
 darkmodeButton.addEventListener("click", () => toggleDarkmode());
-
-// Set dark mode
 window.addEventListener("load", () => checkDarkmode());
 
-// Clicking the search button fetches game data
+// Search button
 searchButton.addEventListener("click", () => {
     search = searchInput.value.trim();
     filters = {
-        platform: platform.value,
-        genre: genre.value,
-        game_mode: gamemode.value
+        "platforms.name": platform.value ? `"${platform.value}"`: "",
+        "genres.name": genre.value ? `"${genre.value}"`: "",
+        "game_modes.name": gamemode.value ? `"${gamemode.value}"`: ""
     }
     offset = 0;
     requestGameData(search, filters, offset);

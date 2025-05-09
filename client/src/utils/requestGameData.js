@@ -15,9 +15,7 @@ export const requestGameData = async (search, filters, offset) => {
         body: JSON.stringify(filters)
     })
     .then(response => response.json())
-    .then(data => {
-        generateResultList(data);
-    })
+    .then(data => generateResultList(data))
     .catch(error => console.error(error))
     .finally(() => {
         searchButtonImage.src = "./src/assets/search.svg";

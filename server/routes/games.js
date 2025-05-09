@@ -13,9 +13,9 @@ gamesRouter.post("/", async (req, res) => {
 
     let validFilters = Object.entries(filters)
         .filter(([_, value]) => value)
-        .map(([key, value]) => `${key}s.name = "${value}"`);
+        .map(([key, value]) => `${key} = (${value})`);
     let filtersString = validFilters.length ? `where ${validFilters.join(" & ")};` : "";
-    
+
     requestData("games", `
           fields name, cover.image_id, genres.name, game_modes.name, platforms.name, storyline;
           limit 100;
