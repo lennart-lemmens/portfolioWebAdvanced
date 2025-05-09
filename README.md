@@ -5,32 +5,32 @@
 
 # Implementatie van elke technisch vereiste (waar in de code?/lijnnummer)
 1. DOM manipulatie:  
-- Elementen selecteren
-- Elementen manipuleren
-- Events aan elementen koppelen
+- Elementen selecteren: ./client/src/constants/documentElements.js
+- Elementen manipuleren: meerdere plekken in de code, bijv. ./client/src/main.js
+- Events aan elementen koppelen: ./client/src/main.js: meerdere event listeners (bijv. favoritesButton, darkmodeButton, searchButton ...)
 2. Modern JavaScript:  
-- Gebruik van constanten
-- Template literals
-- Iteratie over arrays
-- Array methodes
-- Arrow functions
-- Conditional (ternary) operator (moderne if..else)
-- Callback functions
+- Gebruik van constanten: quasi overal in de code, bijv. ./client/src/constants/documentElements.js
+- Template literals: meerdere plekken in de code, bijv. ./server/routes/lists.js: lijn 8
+- Iteratie over arrays: ./client/src/utils/showFavorites.js: lijn 7
+- Array methodes: ./client/src/classes/game.js: lijn 49-64
+- Arrow functions: quasi overal in de code, bijv. ./client/src/utils/darkmode.js: lijn 4, 15 en 23
+- Conditional (ternary) operator (moderne if..else): meerdere plekken in de code, bijv. ./client/src/classes/game.js: lijn 25
+- Callback functions: ./client/src/main.js: lijn 21, 24, 25 ...
 - Promises
-- Async & Await
+- Async & Await: .server/controllers/requestData.js: lijn 24
 - Observer API (1 is voldoende)
 3. Data & API:  
-- Fetch om data op te halen
-- JSON manipuleren en weergeven
+- Fetch om data op te halen: meerdere plekken in de code, bijv. .server/controllers/requestData.js: lijn 9 en 26
+- JSON manipuleren en weergeven: ./client/src/utils/requestGameData.js: lijn 18 en ./client/src/utils/generateResultList.js: lijn 7-10
 4. Opslag & validatie:  
 - Formulier validatie
-- Gebruik van LocalStorage 
+- Gebruik van LocalStorage: ./client/src/classes/game.js: lijn 51 en 63
 5. Styling & layout:  
-- Basis HTML layout (flexbox of CSS grid kan hiervoor worden gebruikt)
-- Basis CSS
-- Gebruiksvriendelijke elementen (verwijderknoppen, icoontjes,...)
+- Basis HTML layout (flexbox of CSS grid kan hiervoor worden gebruikt): ./client/src/index.html
+- Basis CSS: alles bestanden in ./client/src/styles
+- Gebruiksvriendelijke elementen (verwijderknoppen, icoontjes,...): icoontjes voor favorieten toe te voegen, te verwijderen en weer te geven, schakelen tussen dark mode en light mode ...
 6. Tooling & structuur: 
-- Project is opgezet met Vite 
+- Project is opgezet met Vite
 - Een correcte folderstructuur wordt aangehouden (gescheiden html, css en js files, src folder, dist folder, ...)
 
 # Installatiehandleiding
@@ -38,5 +38,9 @@
 # Screenshots van de applicatie
 
 # Gebruikte bronnen (inclusief AI chatlog)
-- https://api-docs.igdb.com/#getting-started
-- https://www.codecademy.com/enrolled/courses/learn-express
+- [https://api-docs.igdb.com/#getting-started]: uitleg over API en fetch requests
+- [https://www.codecademy.com/enrolled/courses/learn-express]: uitleg over werking backend in Express
+- [https://www.svgrepo.com/]: SVG-icoontjes
+- [https://www.w3schools.com/css/css_tooltip.asp]: hoe toon ik een tooltip wanneer ik mijn muis ever een icoontje beweeg
+- [https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/]: hoe vermijd ik dat autocomplete de kleur van mijn input-element verandert
+- [https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp]: hoe zorg ik dat de "enter"-toets hetzelfde doet als de search-knop wanneer mijn cursor in de zoekbalk staat
