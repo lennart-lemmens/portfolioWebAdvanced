@@ -1,7 +1,9 @@
 import { resultList } from "../constants/documentElements.js";
 
 export class ResultList {
-    constructor() {
+    constructor(search, filters) {
+        this.search = search;
+        this.filters = filters;
         this.games = [];
     }
 
