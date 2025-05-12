@@ -1,9 +1,12 @@
 import { resultList } from "../constants/documentElements.js";
+import { requestGameData } from "../utils/requestGameData.js";
 
 export class ResultList {
-    constructor(search, filters) {
+    constructor(search, filters, offset, sort) {
         this.search = search;
         this.filters = filters;
+        this.offset = offset;
+        this.sort = sort;
         this.games = [];
     }
 
@@ -11,15 +14,9 @@ export class ResultList {
         this.games.push(game);
     }
 
-    showGames() {
-        resultList.innerHTML = "";
-        for (let game of this.games) {
-            resultList.appendChild(game.createCard());
-        }
-    }
-
-    sortGames(method) {
-        switch (method) {
+    sortGames(sortMethod) {
+        this.sort = sortMethod;
+        switch (sortMethod) {
             case "asc":
                 this.games.sort((a, b) => a.name.localeCompare(b.name));
                 break;
@@ -28,5 +25,10 @@ export class ResultList {
                 break;
         }
         this.showGames();
+    }
+
+    loadMoreGames() {
+        this.offset += 100;
+        requestGameData(this.search, this.filters, this.offset, this.sort);
     }
 }

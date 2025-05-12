@@ -1,8 +1,6 @@
 import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.js";
 import { resultList } from "../constants/documentElements.js";
-import { search, filters, offset } from "../main.js";
-import { requestGameData } from "../utils/requestGameData.js";
-import { resultlist } from "../utils/generateResultList.js";
+import { resultlist } from "../utils/requestGameData.js";
 
 export class Game {
     constructor(id, name, cover, genres, gamemodes, platforms, storyline) {

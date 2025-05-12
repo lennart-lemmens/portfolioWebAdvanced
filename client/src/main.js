@@ -6,7 +6,7 @@ import { toggleDarkmode, checkDarkmode } from "./utils/darkmode.js";
 import { showFavorites } from "./utils/showFavorites.js";
 import { searchButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode, sort } from "./constants/documentElements.js";
 import { favoriteIconFull } from "./constants/favoriteIcon.js";
-import { resultlist } from "./utils/generateResultList.js";
+import { resultlist } from "./utils/requestGameData.js";
 
 export let search;
 export let filters;
