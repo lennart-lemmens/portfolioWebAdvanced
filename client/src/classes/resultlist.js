@@ -27,6 +27,13 @@ export class ResultList {
         this.showGames();
     }
 
+    showGames() {
+        resultList.innerHTML = "";
+        for (let game of this.games) {
+            resultList.appendChild(game.createCard());
+        }
+    }
+
     loadMoreGames() {
         this.offset += 100;
         requestGameData(this.search, this.filters, this.offset, this.sort);
