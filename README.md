@@ -44,3 +44,4 @@
 - [https://www.w3schools.com/css/css_tooltip.asp]: hoe toon ik een tooltip wanneer ik mijn muis ever een icoontje beweeg
 - [https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/]: hoe vermijd ik dat autocomplete de kleur van mijn input-element verandert
 - [https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp]: hoe zorg ik dat de "enter"-toets hetzelfde doet als de search-knop wanneer mijn cursor in de zoekbalk staat
+- [https://www.freecodecamp.org/news/how-does-the-javascript-sort-function-work/]: hoe sorteer ik objecten in een array op naam
