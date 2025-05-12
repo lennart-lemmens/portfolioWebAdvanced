@@ -6,7 +6,6 @@ export let resultlist;
 
 // Fetch game data and display it in the result list
 export const requestGameData = async (search, filters, offset, sort) => {
-    console.log(offset);
     if (offset === 0) {
         searchButtonImage.src = "./src/assets/clock.svg";
         searchButton.setAttribute("disabled", "");
