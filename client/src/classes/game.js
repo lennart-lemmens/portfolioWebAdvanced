@@ -2,6 +2,7 @@ import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.j
 import { resultList } from "../constants/documentElements.js";
 import { search, filters, offset } from "../main.js";
 import { requestGameData } from "../utils/requestGameData.js";
+import { resultlist } from "../utils/generateResultList.js";
 
 export class Game {
     constructor(id, name, cover, genres, gamemodes, platforms, storyline) {
@@ -128,7 +129,7 @@ export class Game {
         const returnLink = document.createElement("a");
         returnLink.className = "returnLink";
         returnLink.textContent = "< back";
-        returnLink.addEventListener("click", () => requestGameData(search, filters, offset));
+        returnLink.addEventListener("click", () => resultlist.showGames());
 
         // Favorite icon
         const favoriteIcon = document.createElement("div");
