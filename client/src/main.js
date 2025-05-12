@@ -4,12 +4,13 @@ import { requestGameData } from "./utils/requestGameData.js";
 import { getListData } from "./utils/listElements.js";
 import { toggleDarkmode, checkDarkmode } from "./utils/darkmode.js";
 import { showFavorites } from "./utils/showFavorites.js";
-import { searchButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode } from "./constants/documentElements.js";
+import { searchButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode, sort } from "./constants/documentElements.js";
 import { favoriteIconFull } from "./constants/favoriteIcon.js";
+import { resultlist } from "./utils/generateResultList.js";
 
 export let search;
 export let filters;
-export let offset;
+export let offset = 0;
 
 // Fill out select lists in searchbar with options
 getListData("platforms", 220, platform);
@@ -33,7 +34,7 @@ searchButton.addEventListener("click", () => {
         "game_modes.name": gamemode.value ? `"${gamemode.value}"`: ""
     }
     offset = 0;
-    requestGameData(search, filters, offset);
+    requestGameData(search, filters, offset, sort.value);
 });
 
 // Pressing enter in input field triggers search
@@ -42,4 +43,8 @@ searchInput.addEventListener("keypress", event => {
       event.preventDefault();
       searchButton.click();
     }
+});
+
+sort.addEventListener("change", () => {
+    if (resultlist) resultlist.sortGames(sort.value);
 });

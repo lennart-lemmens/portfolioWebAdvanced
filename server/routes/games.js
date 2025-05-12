@@ -8,6 +8,7 @@ gamesRouter.post("/", async (req, res) => {
     const search = req.query.search;
     const filters = req.body;
     const offset = req.query.offset;
+    const sort = req.query.sort;
 
     let searchString = search ? `search "${search}";` : "";
 
@@ -16,12 +17,15 @@ gamesRouter.post("/", async (req, res) => {
         .map(([key, value]) => `${key} = (${value})`);
     let filtersString = validFilters.length ? `where ${validFilters.join(" & ")};` : "";
 
+    let sortString = (sort && !search) ? `sort name ${sort}` : "";
+
     requestData("games", `
+          ${searchString}
           fields name, cover.image_id, genres.name, game_modes.name, platforms.name, storyline;
+          ${filtersString}
           limit 100;
           offset ${offset};
-          ${searchString}
-          ${filtersString}
+          ${sortString}
     `)
     .then(data => res.json(data));
 });

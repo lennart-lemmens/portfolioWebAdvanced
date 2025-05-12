@@ -1,4 +1,5 @@
-import { requestGameData } from "./requestGameData";
+import { requestGameData } from "./requestGameData.js";
+import { sort } from "../constants/documentElements.js";
 
 // Show favorites saved in local storage
 export const showFavorites = () => {
@@ -6,5 +7,5 @@ export const showFavorites = () => {
     let filters = {
         id: favorites ? favorites.join(", ") : ""
     }
-    requestGameData("", filters, 0);
+    requestGameData("", filters, 0, sort.value);
 }
