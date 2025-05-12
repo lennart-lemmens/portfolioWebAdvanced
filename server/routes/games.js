@@ -17,7 +17,7 @@ gamesRouter.post("/", async (req, res) => {
         .map(([key, value]) => `${key} = (${value})`);
     let filtersString = validFilters.length ? `where ${validFilters.join(" & ")};` : "";
 
-    let sortString = (sort && !search) ? `sort name ${sort}` : "";
+    let sortString = (sort && !search) ? `sort name ${sort};` : "";
 
     requestData("games", `
           ${searchString}
