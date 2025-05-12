@@ -2,12 +2,12 @@ import { searchButton, searchButtonImage, resultList } from "../constants/docume
 import { generateResultList } from "./generateResultList";
 
 // Fetch game data and display it in the result list
-export const requestGameData = async (search, filters, offset) => {
+export const requestGameData = async (search, filters, offset, sort) => {
     searchButtonImage.src = "./src/assets/clock.svg";
     searchButton.setAttribute("disabled", "");
     resultList.textContent = "Loading...";
     
-    return fetch(`http://localhost:8080/games?search=${search}&offset=${offset}`, {
+    return fetch(`http://localhost:8080/games?search=${search}&offset=${offset}&sort=${sort}`, {
         method: "POST",
         headers: {
             "Content-type": "application/json"

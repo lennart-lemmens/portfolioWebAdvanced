@@ -15,4 +15,16 @@ export class ResultList {
             resultList.appendChild(game.createCard());
         }
     }
+
+    sortGames(method) {
+        switch (method) {
+            case "asc":
+                this.games.sort((a, b) => a.name.localeCompare(b.name));
+                break;
+            case "desc":
+                this.games.sort((a, b) => b.name.localeCompare(a.name));
+                break;
+        }
+        this.showGames();
+    }
 }

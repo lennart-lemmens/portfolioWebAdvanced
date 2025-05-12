@@ -17,7 +17,7 @@
 
 #searchContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
     width: 650px;
@@ -76,6 +76,10 @@
 #favoritesButton:hover {
     opacity: .7;
     cursor: pointer;
+}
+
+#sort {
+    width: 50px;
 }
 
 select {
