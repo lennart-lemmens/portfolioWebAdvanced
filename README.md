@@ -11,7 +11,7 @@
 2. Modern JavaScript:  
 - Gebruik van constanten: quasi overal in de code, bijv. ./client/src/constants/documentElements.js
 - Template literals: meerdere plekken in de code, bijv. ./server/routes/lists.js: lijn 8
-- Iteratie over arrays: ./client/src/classes/resultlist.js: lijn 14-16
+- Iteratie over arrays: ./client/src/classes/resultlist.js: lijn 32-34
 - Array methodes: ./client/src/classes/game.js: lijn 49-64
 - Arrow functions: quasi overal in de code, bijv. ./client/src/utils/darkmode.js: lijn 4, 15 en 23
 - Conditional (ternary) operator (moderne if..else): meerdere plekken in de code, bijv. ./client/src/classes/game.js: lijn 25
