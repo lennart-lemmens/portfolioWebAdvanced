@@ -21,6 +21,7 @@
     align-items: center;
     gap: 1rem;
     width: 650px;
+    max-width: 80vw;
 }
 
 #searchBar {
@@ -85,6 +86,7 @@
 select {
     height: 30px;
     width: 200px;
+    max-width: 80vw;
     color: #DBE2EF;
     background-color: #112D4E;
     border: 0;
@@ -97,6 +99,8 @@ button:hover {
 
 #filters {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0 2rem;
 }
 
@@ -110,4 +114,26 @@ button:hover {
 #darkmodeButton:hover {
     cursor: pointer;
     opacity: .8;
+}
+
+@media (max-width: 600px) {
+    #navBar {
+        padding-top: 4rem;
+        padding-bottom: 1rem;
+        gap: .5rem;
+    }
+
+    #searchContainer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 55vw;
+    }
+
+    #searchBar {
+        width: 100%;
+    }
+
+    #filters select {
+        width: 75vw;
+    }
 }

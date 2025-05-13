@@ -9,9 +9,9 @@ Colors:
 @import url(./navBar.css);
 @import url(./resultList.css);
 @import url(./gamePage.css);
-@import url(./components/gameCard.css);
-@import url(./components/favoriteIcon.css);
-@import url(./components/tooltip.css);
+@import url(./gameCard.css);
+@import url(./favoriteIcon.css);
+@import url(./tooltip.css);
 @import url(./themes/darkmode.css);
 
 body {

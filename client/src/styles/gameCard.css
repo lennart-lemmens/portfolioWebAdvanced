@@ -5,6 +5,7 @@
     box-shadow: 0 0 10px #DBE2EF;
     border-radius: 7px;
     width: 350px;
+    max-width: 90vw;
     height: 185px;
     transition: all .2s ease-out;
 }

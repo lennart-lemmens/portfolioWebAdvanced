@@ -23,3 +23,10 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+@media (max-width: 600px) {
+  .tooltip .tooltiptext {
+    left: auto;
+    right: 70%;
+  }
+}

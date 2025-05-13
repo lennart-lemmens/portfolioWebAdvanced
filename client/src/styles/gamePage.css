@@ -6,6 +6,15 @@
     margin: 0 auto;
 }
 
+
+.gamePage * {
+    max-width: 85vw;
+}
+
+.gamePage p {
+    text-align: justify;
+}
+
 .returnLink:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -14,6 +23,7 @@
 .coverAndInfoContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 4rem;
     margin-bottom: 2rem;
 }
@@ -31,4 +41,17 @@
     display: flex;
     gap: 0 4rem;
     flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .gamePage {
+        min-width: 85vw;
+        margin: 0 2rem;
+    }
+
+    .coverAndInfoContainer {
+        gap: 1rem;
+        margin-bottom: 0;
+        justify-content: center;
+    }
 }
