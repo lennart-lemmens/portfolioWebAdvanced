@@ -116,7 +116,7 @@ button:hover {
     opacity: .8;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #navBar {
         padding-top: 4rem;
         padding-bottom: 1rem;
@@ -125,8 +125,11 @@ button:hover {
 
     #searchContainer {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem 55vw;
+        justify-content: space-between;
+    }
+
+    #searchContainer .tooltip, #sort {
+        margin: 0 1rem;
     }
 
     #searchBar {

@@ -1,7 +1,7 @@
 .gamePage {
     position: relative;
     width: 50vw;
-    min-width: 700px;
+    min-width: 600px;
     text-align: left;
     margin: 0 auto;
 }
@@ -43,7 +43,7 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .gamePage {
         min-width: 85vw;
         margin: 0 2rem;
