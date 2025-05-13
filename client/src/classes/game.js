@@ -1,6 +1,7 @@
 import { favoriteIconFull, favoriteIconEmpty } from "../constants/favoriteIcon.js";
-import { resultList } from "../constants/documentElements.js";
+import { resultList, resultListContainer } from "../constants/documentElements.js";
 import { resultlist } from "../utils/requestGameData.js";
+import { addObserverElement } from "../utils/addObserverElement.js";
 
 export class Game {
     constructor(id, name, cover, genres, gamemodes, platforms, storyline) {
@@ -127,7 +128,10 @@ export class Game {
         const returnLink = document.createElement("a");
         returnLink.className = "returnLink";
         returnLink.textContent = "< back";
-        returnLink.addEventListener("click", () => resultlist.showGames());
+        returnLink.addEventListener("click", () => {
+            resultlist.showGames();
+            addObserverElement();
+        });
 
         // Favorite icon
         const favoriteIcon = document.createElement("div");
@@ -186,5 +190,6 @@ export class Game {
 
         resultList.innerHTML = "";
         resultList.appendChild(gamePage);
+        resultListContainer.removeChild(resultListContainer.lastChild);
     }
 }
