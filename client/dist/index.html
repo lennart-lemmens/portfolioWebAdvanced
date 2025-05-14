@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/gamepad.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Web Advanced</title>
+    <script type="module" crossorigin src="/assets/index-5LH3ScZP.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DZlZOF0X.css">
+  </head>
+  <body>
+    <nav id="navBar">
+      <div id="darkmodeButton"><img src="data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='25px'%20height='25px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cpath%20d='M3.32031%2011.6835C3.32031%2016.6541%207.34975%2020.6835%2012.3203%2020.6835C16.1075%2020.6835%2019.3483%2018.3443%2020.6768%2015.032C19.6402%2015.4486%2018.5059%2015.6834%2017.3203%2015.6834C12.3497%2015.6834%208.32031%2011.654%208.32031%206.68342C8.32031%205.50338%208.55165%204.36259%208.96453%203.32996C5.65605%204.66028%203.32031%207.89912%203.32031%2011.6835Z'%20stroke='%23F9F7F7'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3c/svg%3e" alt="" /></div>
+      <div id="searchContainer">
+        <div id="searchBar">
+          <input type="text" placeholder="Search title" id="searchInput" />
+          <button id="searchButton">
+            <img src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='utf-8'?%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Generator:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M15.7955%2015.8111L21%2021M18%2010.5C18%2014.6421%2014.6421%2018%2010.5%2018C6.35786%2018%203%2014.6421%203%2010.5C3%206.35786%206.35786%203%2010.5%203C14.6421%203%2018%206.35786%2018%2010.5Z'%20stroke='%23F9F7F7'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e" alt="Search button" id="searchButtonImage" />
+          </button>
+        </div>
+        <select name="sort" id="sort">
+          <option value="" selected>Sort</option>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
+        </select>
+        <div id="showFavoritesButton" class="tooltip">
+          <div id="favoritesButton"></div>
+          <div class="tooltiptext">Show favorites</div>
+        </div>
+      </div>
+      <div id="filters">
+        <select name="platform" id="platform">
+          <option value="" selected>Platform</option>
+        </select>
+        <select name="genre" id="genre">
+          <option value="" selected>Genre</option>
+        </select>
+        <select name="gamemode" id="gamemode">
+          <option value="" selected>Game mode</option>
+        </select>
+      </div>
+    </nav>
+
+    <div id="resultListContainer">
+      <div id="resultList"></div>
+    </div>
+
+  </body>
+</html>
