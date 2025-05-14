@@ -14,9 +14,7 @@ const getAccessToken = async () => {
   )
     .then(response => response.json())
     .then(data => data.access_token)
-    .catch(error => {
-      console.error(error);
-    });
+    .catch(error => console.error(error));
 };
 
 // Request data from API
