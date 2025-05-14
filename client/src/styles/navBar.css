@@ -74,8 +74,11 @@
     fill: #DBE2EF;
 }
 
-#favoritesButton:hover {
+#showFavoritesButton:hover #favoritesButton {
     opacity: .7;
+}
+
+#showFavoritesButton:hover {
     cursor: pointer;
 }
 

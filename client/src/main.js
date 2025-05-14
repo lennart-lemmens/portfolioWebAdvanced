@@ -4,7 +4,7 @@ import { requestGameData } from "./utils/requestGameData.js";
 import { getListData } from "./utils/listElements.js";
 import { toggleDarkmode, checkDarkmode } from "./utils/darkmode.js";
 import { showFavorites } from "./utils/showFavorites.js";
-import { searchButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode, sort } from "./constants/documentElements.js";
+import { searchButton, showFavoritesButton, favoritesButton, darkmodeButton, searchInput, platform, genre, gamemode, sort } from "./constants/documentElements.js";
 import { favoriteIconFull } from "./constants/favoriteIcon.js";
 import { resultlist } from "./utils/requestGameData.js";
 
@@ -19,7 +19,7 @@ getListData("game_modes", 6, gamemode);
 
 // Favorites button
 favoritesButton.innerHTML = favoriteIconFull;
-favoritesButton.addEventListener("click", () => showFavorites());
+showFavoritesButton.addEventListener("click", () => showFavorites());
 
 // Dark mode
 darkmodeButton.addEventListener("click", () => toggleDarkmode());

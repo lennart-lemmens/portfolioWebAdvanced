@@ -1,5 +1,6 @@
 export const searchButton = document.getElementById("searchButton");
 export const searchButtonImage = document.getElementById("searchButtonImage");
+export const showFavoritesButton = document.getElementById("showFavoritesButton");
 export const favoritesButton = document.getElementById("favoritesButton");
 export const resultList = document.getElementById("resultList");
 export const resultListContainer = document.getElementById("resultListContainer");
