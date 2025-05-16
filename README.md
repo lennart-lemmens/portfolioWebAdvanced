@@ -113,3 +113,4 @@ http://localhost:5173/
 - https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp: hoe zorg ik dat de "enter"-toets hetzelfde doet als de search-knop wanneer mijn cursor in de zoekbalk staat
 - https://www.freecodecamp.org/news/how-does-the-javascript-sort-function-work: hoe sorteer ik objecten in een array op naam
 - https://medium.com/@oadaramola/a-pitfall-i-almost-fell-into-d1d3461b2fb8: gebruik van .env-bestand
+- [ChatGPT log](https://ehb-my.sharepoint.com/:w:/g/personal/lennart_lemmens_student_ehb_be/EVLb0cy-MghDobAhbeN91soBqtCOzWrwCv2vDzHwPcb-2A?e=0WVopx)
